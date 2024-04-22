@@ -1,13 +1,13 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CMSC447-HW2-Home Page</title>
+    <title>Update Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 </head>
 <body>
-    <h1>Data from SQLite Database</h1>
-    <h1>user table</h1>
+    <div class="container">
+        <h1 class="display-4 mt-3">Welcome to CMSC 447 HW2 - Update Tab</h1>
+        <h1>user table</h1>
     <table>
         <thead>
             <tr>
@@ -26,21 +26,21 @@
             {% endfor %}
         </tbody>
     </table>
-    <div class="container mt-3">
-        <form action="/create" method="post">  <button type="submit" class="btn btn-primary">Insert to Table (create)</button>
-        </form>
-    </div>
-    <div class="container mt-3">
-        <form action="/search" method="post">  <button type="submit" class="btn btn-primary">Search Table</button>
-        </form>
-    </div>
-    <div class="container mt-3">
-        <form action="/delete" method="post">  <button type="submit" class="btn btn-primary">Delete user from table</button>
-        </form>
+        <h7>Enter an id below to search and update it in the table</h7>
+        
     </div>
 
+    <form action="/search_user_update" method="post">
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" class="form-control" name="id" placeholder="id" aria-label="id" aria-describedby="basic-addon1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
     <div class="container mt-3">
-        <form action="/update" method="post">  <button type="submit" class="btn btn-primary">Update a user's info</button>
+        <form action="/">  <button type="submit" class="btn btn-primary">Return Home</button>
         </form>
     </div>
 

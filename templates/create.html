@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4 mt-3">Welcome to CMSC 447 HW2 - Create Tab</h1>
+        <h1>Data from SQLite Database</h1>
+    <h1>user table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>  
+                <td>{{ row[1] }}</td>  
+                <td>{{ row[2] }}</td> 
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <h7>Enter info below to add it to the table</h7>
+        
+    </div>
+
+    <form action="/submit_user" method="post">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" class="form-control" name="name" placeholder="name" aria-label="name" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" class="form-control" name="id" placeholder="id" aria-label="id" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" class="form-control" name="points" placeholder="points" aria-label="points" aria-describedby="basic-addon1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="container mt-3">
+        <form action="/">  <button type="submit" class="btn btn-primary">Return Home</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

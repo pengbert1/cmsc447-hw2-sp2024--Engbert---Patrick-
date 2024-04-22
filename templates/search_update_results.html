@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for ID: {{ id }}</h1>
+    <div>
+        <ul>
+            {% for row in data %}
+            <li>Name: {{ row[0] }}, ID: {{ row[1] }}, Points: {{ row[2] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <h3>Fill in the info you wish to update</h3>
+    <form action="/submit_user_update" method="post">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" class="form-control" name="name" placeholder="name" aria-label="name" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" class="form-control" name="id" placeholder="id" aria-label="id" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" class="form-control" name="points" placeholder="points" aria-label="points" aria-describedby="basic-addon1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="container mt-3">
+        <form action="/">  <button type="submit" class="btn btn-primary">Return Home</button>
+        </form>
+    </div>
+</body>
+</html>
